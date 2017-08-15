@@ -1,0 +1,49 @@
+<div class="radio_bgblured" style="background:url('{{trackLabel}}')">
+  <div class="fade">
+  </div>
+</div>
+<div class="main_radio">
+  <div class="main_radio-title">
+    <!-- <h1>DROPMIND Radio EDM</h1> -->
+    <img src="../logo.png" ng-src="../logo.png" />
+    <span>Radio D&B</span>
+    <!-- <span>alpha v0.1</span> -->
+  </div>
+  <div class="main_radio-track">
+    <div class="main_radio-track-preview">
+      <img id="trackImg" ng-src="{{trackLabel}}" />
+    </div>
+    <div class="main_radio-track-trackname">
+      <p>
+        {{trackName}}
+      </p>
+    </div>
+    <div class="main_radio-track-autorLabel">
+      <span>{{trackAutor}}</span>
+    </div>
+    <canvas id="canvas" class="radio-visual" width="800" height="350"></canvas>
+    <div class="main_radio-track-trackPlayer">
+      <audio class="dropradio-player" id="player">
+        <source src="{{trackSrc}}" ng-src="{{trackSrc}}" type="audio/mp3">
+      </audio>
+      <div class="main_radio-track-trackPlayer-timeline">
+        <div class="main_radio-track-trackPlayer-timeline-currentTimePos" id="timeline">
+        </div>
+      </div>
+      <button class="button_back" ng-click="playBack();">
+        <i class="fa fa-fast-backward" aria-hidden="true"></i>
+      </button>
+      <button class="button_PP" ng-click="playPause();">
+        <i class="fa fa-play" aria-hidden="true" ng-show="playerPlay == false"></i>
+        <i class="fa fa-pause" aria-hidden="true" ng-show="playerPlay == true"></i>
+      </button>
+      <button class="button_forw" id="playForw" ng-click="playForw(trackDuration);">
+        <i class="fa fa-fast-forward" aria-hidden="true"></i>
+      </button>
+      <input id="volume" class="main_radio-track-trackPlayer-volume" type="range" min="0" max="100" step="1" value="50">
+      <div class="main_radio-track-trackPlayer-chrono">
+        <span><span id="curtime"></span> / <span id="duration"></span></span>
+      </div>
+    </div>
+  </div>
+</div>

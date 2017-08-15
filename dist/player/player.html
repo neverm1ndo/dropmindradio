@@ -1,0 +1,25 @@
+<div class="main_radio">
+  <div class="main_radio-title">
+    <h1>DROPMIND Radio EDM</h1>
+    <!-- <span>alpha v0.1</span> -->
+  </div>
+  <div class="main_radio-track">
+    <div class="main_radio-track-preview">
+      <img ng-src="{{trackLabel}}" />
+    </div>
+    <div class="main_radio-track-trackname">
+      <p>
+        {{trackName}}
+      </p>
+    </div>
+    <div class="main_radio-track-autorLabel">
+      <span>{{trackAutor}}</span>
+    </div>
+    <canvas class="radio-visual"></canvas>
+    <div class="main_radio-track-trackPlayer">
+      <audio controls class="dropradio-player">
+        <source ng-src="{{trackSrc}}" type="audio/mp3">
+      </audio>
+    </div>
+  </div>
+</div>

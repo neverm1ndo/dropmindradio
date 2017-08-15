@@ -1,0 +1,21 @@
+<div class="sidebar animate-if-sidebar" ng-if="sidebarControl">
+  <div class = "sidebar_logo">
+    <img src="logo.png"/>
+    <span>Radio D&B</span>
+  </div>
+  <div class="sidebar_themesList">
+    <p class="sidebar_themesList-topic">
+      THEMES
+    </p>
+    <div class="sidebar_themesList-theme" ng-repeat="theme in themes track by $index">
+      <button class="button-theme" ng-click="chooseTheme()">
+        #{{theme.theme}}
+      </button>
+    </div>
+  </div>
+</div>
+<div class="sidebar-control">
+  <button class="sidebar-control-button" ng-click="sidebarCont
+  ()"><i class="fa fa-cog" aria-hidden="true"></i>
+</button>
+</div>
