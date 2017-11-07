@@ -7,7 +7,12 @@ html, body {
   color: #dfdfdf;
   font-family: "Arial", sans-serif;
 }
-.fade {
+button, input {
+  &:hover, &:active, &:focus {
+    outline: none;
+  }
+}
+.fader {
   background: rgba(0,0,0,0.4);
   width: 100%;
   height: 100%;
@@ -21,6 +26,7 @@ html, body {
     top: 0;
     background-attachment: fixed!important;
     background-repeat: no-repeat!important;
+    background-position: center;
     background-size: 100% auto!important;
     -webkit-filter: blur(25px);
      -moz-filter: blur(25px);
@@ -29,6 +35,10 @@ html, body {
           filter: blur(25px);
     z-index: 0;
   }
+}
+.verto {
+  display: table;
+  height: 100%;
 }
 .main {
 &_shell {
@@ -39,12 +49,15 @@ html, body {
   // background: #121212;
 }
   &_radio {
-  width: 600px;
+  // width: 600px;
+  // background: black;
   height: 500px;
-  position: absolute;
-  margin: -200px -300px;
-  left: 50%;
-  top: 50%;
+  // position: relative;
+  // margin-top: -250px;
+  // left: 50%;
+  // top: 50%;
+  display: table-cell;
+  vertical-align: middle;
 }
 &_radio-title {
   width: 100%;
@@ -65,7 +78,7 @@ html, body {
     font-size: 12px;
     position: relative;
     top: -10px;
-    left: -20px;
+    left: -6px;
     }
   }
 &_radio-track {
@@ -75,7 +88,6 @@ html, body {
 &_radio-track-preview {
   width: 220px;
   height: 220px;
-  background: #090909;
   float: left;
   margin-right: 20px;
 }
@@ -84,7 +96,7 @@ html, body {
   height: auto;
 }
 &_radio-track-trackname {
-  width: 300px;
+  // width: 300px;
   overflow: hidden;
   /*display: inline-block;*/
 }
@@ -146,7 +158,7 @@ html, body {
   // background: #252525;
   position: relative;
   left: 0px;
-  top: -90px;
+  top: -93px;
   margin-bottom: -75px;
 }
 audio {
@@ -173,4 +185,44 @@ button {
       opacity: 1;
     }
 
+}
+@media screen and (max-width: 600px) {
+  body {
+    line-height: 1;
+  }
+  .radio-visual {
+    display: none;
+  }
+  .radio_bgblured {
+    background-size: auto 100%!important;
+    background-position: 50% 50%;
+    // background-clip: content-box;
+  }
+  .main_radio-title {
+    margin-bottom: 0px;
+    height: 80px;
+    margin-top: 10px;
+  }
+  .main_radio-track {
+    line-height: 1.2;
+  }
+  .main_radio-track-preview {
+    width: 100%;
+    text-align: center;
+    float: none;
+  }
+  .main_radio-track-preview img {
+  width: 250px;
+  }
+  .main_radio-track-trackname {
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+  .main_radio-track-trackname p {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+  .main_radio-track-autorLabel {
+    margin-top: 0px;
+  }
 }

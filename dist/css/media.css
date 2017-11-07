@@ -1,0 +1,9 @@
+@media all and (max-width: 1024px) {
+  .main_radio {
+   width: 600px;
+   background: black;
+   position: relative;
+   margin-top: -250px;
+   top: 50%;
+ }
+}

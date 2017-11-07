@@ -6,44 +6,6 @@ function dropCtrl($scope, trackDuration) {
 
 ;(function() {
   'use strict';
-  angular.module('dropmind').controller('sidebarCtrl', ['$scope', '$http', sidebarCtrl]);
-   function sidebarCtrl($scope, $http, $event) {
-     $scope.sidebarCont = function() {
-       if ($scope.sidebarControl == true) {
-         $scope.sidebarControl = false;
-       } else {
-         $scope.sidebarControl = true;
-       };
-     };
-     $scope.themes = [
-        {theme: 'Drum&Bass'},
-        {theme: 'Retrowave (COMING SOON)'},
-        {theme: 'Witch House (COMING SOON)'}
-     ];
-     $scope.chooseTheme = function(e) {
-       window.location
-     };
-   };
- })();
-
-;(function() {
-  'use strict';
-  angular.module('dropmind').directive('sidebar', sidebarDrtv);
-
-  function sidebarDrtv() {
-    return {
-      scope: {
-        state: '=?',
-        cell: '='
-      },
-      controller: 'sidebarCtrl',
-      templateUrl: 'sidebar/sidebarTmpl.html'
-    };
-  };
-})();
-
-;(function() {
-  'use strict';
   angular.module('dropmind').controller('playerCtrl', ['$scope','$http' , playerCtrl]);
    function playerCtrl($scope, $http) {
      console.log("WORK");
@@ -155,14 +117,12 @@ function playerVisual() {
     canvas = document.getElementById('canvas');
     analyser = context.createAnalyser();
     ctx = canvas.getContext('2d');
-    // Re-route audio playback into the processing graph of the AudioContext
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
     frameLooper();
   };
   initPlayer();
-  // Looping at the default frame rate that the browser provides(approx. 60 FPS)
   function frameLooper(){
     window.requestAnimationFrame(frameLooper);
     fbc_array = new Uint8Array(analyser.frequencyBinCount);
@@ -199,3 +159,46 @@ playerVisual();
 })();
 
 
+
+;(function() {
+  'use strict';
+  angular.module('dropmind').controller('sidebarCtrl', ['$scope', '$http', sidebarCtrl]);
+   function sidebarCtrl($scope, $http, $event) {
+     $scope.sidebarCont = function() {
+       if ($scope.sidebarControl == true) {
+         $scope.sidebarControl = false;
+       } else {
+         $scope.sidebarControl = true;
+       };
+     };
+     $scope.themes = [
+        {theme: 'Drum&Bass'},
+        {theme: 'Retrowave (COMING SOON)'},
+        {theme: 'Witch House (COMING SOON)'}
+     ];
+     if ($scope.showVisualizer == false ) {
+       console.log('Sjsjs');
+     } else {
+       console.log('123');
+     };
+    //  $scope.chooseTheme = function(e) {
+    //    window.location
+    //  };
+   };
+ })();
+
+;(function() {
+  'use strict';
+  angular.module('dropmind').directive('sidebar', sidebarDrtv);
+
+  function sidebarDrtv() {
+    return {
+      scope: {
+        state: '=?',
+        cell: '='
+      },
+      controller: 'sidebarCtrl',
+      templateUrl: 'sidebar/sidebarTmpl.html'
+    };
+  };
+})();

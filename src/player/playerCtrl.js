@@ -111,14 +111,12 @@ function playerVisual() {
     canvas = document.getElementById('canvas');
     analyser = context.createAnalyser();
     ctx = canvas.getContext('2d');
-    // Re-route audio playback into the processing graph of the AudioContext
     source = context.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(context.destination);
     frameLooper();
   };
   initPlayer();
-  // Looping at the default frame rate that the browser provides(approx. 60 FPS)
   function frameLooper(){
     window.requestAnimationFrame(frameLooper);
     fbc_array = new Uint8Array(analyser.frequencyBinCount);

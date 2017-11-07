@@ -8,7 +8,15 @@ body {
   color: #dfdfdf;
   font-family: "Arial", sans-serif;
 }
-.fade {
+button:hover,
+input:hover,
+button:active,
+input:active,
+button:focus,
+input:focus {
+  outline: none;
+}
+.fader {
   background: rgba(0, 0, 0, 0.4);
   width: 100%;
   height: 100%;
@@ -21,6 +29,7 @@ body {
   top: 0;
   background-attachment: fixed!important;
   background-repeat: no-repeat !important;
+  background-position: center;
   background-size: 100% auto!important;
   -webkit-filter: blur(25px);
   -moz-filter: blur(25px);
@@ -29,6 +38,10 @@ body {
   filter: blur(25px);
   z-index: 0;
 }
+.verto {
+  display: table;
+  height: 100%;
+}
 .main_shell {
   position: absolute;
   width: 100%;
@@ -36,12 +49,9 @@ body {
   z-index: 100;
 }
 .main_radio {
-  width: 600px;
   height: 500px;
-  position: absolute;
-  margin: -200px -300px;
-  left: 50%;
-  top: 50%;
+  display: table-cell;
+  vertical-align: middle;
 }
 .main_radio-title {
   width: 100%;
@@ -63,7 +73,7 @@ body {
   font-size: 12px;
   position: relative;
   top: -10px;
-  left: -20px;
+  left: -6px;
 }
 .main_radio-track {
   width: 90%;
@@ -72,7 +82,6 @@ body {
 .main_radio-track-preview {
   width: 220px;
   height: 220px;
-  background: #090909;
   float: left;
   margin-right: 20px;
 }
@@ -81,7 +90,6 @@ body {
   height: auto;
 }
 .main_radio-track-trackname {
-  width: 300px;
   overflow: hidden;
   /*display: inline-block;*/
 }
@@ -141,7 +149,7 @@ body {
   opacity: 0.2;
   position: relative;
   left: 0px;
-  top: -90px;
+  top: -93px;
   margin-bottom: -75px;
 }
 audio {
@@ -169,13 +177,52 @@ button::-moz-focus-inner {
 button:hover {
   opacity: 1;
 }
+@media screen and (max-width: 600px) {
+  body {
+    line-height: 1;
+  }
+  .radio-visual {
+    display: none;
+  }
+  .radio_bgblured {
+    background-size: auto 100%!important;
+    background-position: 50% 50%;
+  }
+  .main_radio-title {
+    margin-bottom: 0px;
+    height: 80px;
+    margin-top: 10px;
+  }
+  .main_radio-track {
+    line-height: 1.2;
+  }
+  .main_radio-track-preview {
+    width: 100%;
+    text-align: center;
+    float: none;
+  }
+  .main_radio-track-preview img {
+    width: 250px;
+  }
+  .main_radio-track-trackname {
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+  .main_radio-track-trackname p {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+  .main_radio-track-autorLabel {
+    margin-top: 0px;
+  }
+}
 
 sidebar {
   /* when hiding the thing */
   /* when showing the thing */
 }
 sidebar .sidebar {
-  width: 300px;
+  width: 80%;
   padding-left: 15px;
   padding-right: 15px;
   height: 100%;
@@ -186,8 +233,22 @@ sidebar .sidebar {
   background: rgba(10, 10, 10, 0.95);
 }
 sidebar .sidebar p,
-sidebar .sidebar span {
+sidebar .sidebar span,
+sidebar .sidebar label {
   opacity: 0.7;
+}
+sidebar .sidebar_check {
+  margin-left: 15px;
+}
+sidebar .sidebar .checkLabel {
+  position: relative;
+  text-transform: uppercase;
+  font-size: 14px;
+  top: -3px;
+  left: 5px;
+}
+sidebar .sidebar_themesList:last-child {
+  margin-top: 10px;
 }
 sidebar .sidebar_themesList .button-theme {
   width: 100%;
@@ -221,7 +282,7 @@ sidebar .sidebar_logo img {
 sidebar .sidebar_logo span {
   font-size: 9px;
   position: relative;
-  top: -40px;
+  top: -20px;
   left: -10px;
   opacity: 0.7;
 }
@@ -241,6 +302,7 @@ sidebar .sidebar-control button {
 sidebar .sidebar-control button:hover,
 sidebar .sidebar-control button:focus {
   opacity: 0.6;
+  outline: none;
 }
 sidebar .ng-hide-add {
   -webkit-animation: 1.5s flipInY ease;
@@ -275,4 +337,13 @@ sidebar .animate-if.ng-leave.ng-leave-active {
 sidebar .animate-if.ng-leave,
 sidebar .animate-if.ng-enter.ng-enter-active {
   opacity: 1;
+}
+@media screen and (max-width: 600px) {
+  sidebar .sidebar {
+    width: 100%;
+  }
+  sidebar .animate-if-sidebar.ng-enter,
+  sidebar .animate-if-sidebar.ng-leave.ng-leave-active {
+    right: -100%;
+  }
 }

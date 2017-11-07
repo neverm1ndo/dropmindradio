@@ -14,8 +14,13 @@
         {theme: 'Retrowave (COMING SOON)'},
         {theme: 'Witch House (COMING SOON)'}
      ];
-     $scope.chooseTheme = function(e) {
-       window.location
+     if ($scope.showVisualizer == false ) {
+       console.log('Sjsjs');
+     } else {
+       console.log('123');
      };
+    //  $scope.chooseTheme = function(e) {
+    //    window.location
+    //  };
    };
  })();
