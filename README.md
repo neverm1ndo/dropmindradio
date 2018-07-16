@@ -1,7 +1,7 @@
-## DropMind Radiostation
+## DropMind Radiostation Prototype
 Powered with the Angular.js framework
 
-version v0.3
+version v0.01
 ***
-Available on:
+Test Available on:
 <http://dropmind.ru>
